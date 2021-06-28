@@ -47,7 +47,7 @@ public class Basket {
         //return  false;
     }
 
-    public void print(String title){  // метод print показывает содержимое корзины.2
+    public void print(String title){  // метод print показывает содержимое корзины.
         System.out.println(title);
         if(items.isEmpty()){
             System.out.println("Корзина пуста");
