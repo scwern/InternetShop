@@ -4,11 +4,12 @@ public class Main {
         vasyaBasket.add("Молоко", 80);
         vasyaBasket.add("Хлеб",40);
 
-        Basket petyaBasket = new Basket(500); // Новая корзина на основе класса Basket с лимитом 500.
-        petyaBasket.add("Лопата", 280);
+        Basket petyaBasket = new Basket(5000); // Новая корзина на основе класса Basket с лимитом 500.
+        petyaBasket.add("Лопата", 280, 2 , 2.1);
         petyaBasket.add("Бочка", 2900);
 
-        Basket mashaBasket = new Basket("Стол", 5000);
+        Basket mashaBasket = new Basket(300);
+        mashaBasket.add("Хрен", 22, 2,3.3);
 
         vasyaBasket.print("Корзина Васи: ");
         petyaBasket.print("Корзина Пети: ");

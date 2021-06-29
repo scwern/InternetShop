@@ -1,3 +1,4 @@
+import javax.lang.model.type.MirroredTypeException;
 import javax.swing.plaf.basic.BasicLabelUI;
 import javax.xml.namespace.QName;
 
@@ -5,6 +6,7 @@ public class Basket {
     private String items = "";
     private  int totalPrice = 0;
     private  int limit;
+    private  double itemWeight;
 
     public Basket(){  // конструктор без параметров, чтобы необязательно было создавать лимит.
         items = "Список товаров: ";
@@ -17,21 +19,23 @@ public class Basket {
     //public Basket(int totalPriceLimit){ // конструктор.
         //limit = totalPriceLimit;
     }
-    public Basket(String items, int totalPrice){
+    public Basket(String items, int totalPrice, double itemWeight){
         this();
         this.items = this.items + items;
         this.totalPrice = totalPrice;
+        this.itemWeight = itemWeight;
     }
 
 
     public void add(String name, int price){
 
-        add(name, price, 1);
+        add(name, price, 1, 0);
     }
 
     public void clear(){  // очищаем корзину.
         items = "";
         totalPrice = 0;
+        itemWeight = 0;
     }
 
     public int getTotalPrice(){   // получаем полную стоимость товаров из корзины.
@@ -55,14 +59,17 @@ public class Basket {
             System.out.println(items);
         }
     }
-    public void add(String name, int price, int count){  // метод add позволяет добавить содержимое в корзину.
+    public void add(String name, int price, int count, double weight){  // метод add позволяет добавить содержимое в корзину.
         if(contains(name)){   // проверяем есть ли уже товар, который мы пытаемся добавить.
             return;
         }
-        if(totalPrice + count * price >= limit){ // Проверяем превысили ли лимит.
+        if(totalPrice + count * price * weight >= limit){ // Проверяем превысили ли лимит.
             return;
         }
-        items = items + "\n" + name + " - " + count + "шт. - " + price;
+
+
+
+        items = items + "\n" + name + " - " + count + "шт.  цена: " + price + " весом: " + weight + "кг";
         totalPrice = totalPrice + count * price;
 
     }
