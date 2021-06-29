@@ -13,7 +13,7 @@ public class Basket {
 
     public Basket(int limit){
         this();
-        this.limit = limit; //this - обозначаем переменную класса.sss
+        this.limit = limit; //this - обозначаем переменную класса.
     //public Basket(int totalPriceLimit){ // конструктор.
         //limit = totalPriceLimit;
     }
