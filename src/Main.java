@@ -14,6 +14,15 @@ public class Main {
         vasyaBasket.print("Корзина Васи: ");
         petyaBasket.print("Корзина Пети: ");
         mashaBasket.print("Корзина Маши: ");
+
+        Product a = new Product("Сыр",50); // в данном случае a и b ссылаются на один и тот же объект в памяти.
+        Product b = a;
+        a.setName("Сок");
+        System.out.println(a);
+        System.out.println(b);
+
+
+
     }
 
 
